@@ -2,46 +2,44 @@
 
 Bem-vindo ao desafio de projeto "Previsão de Estoque Inteligente na AWS com SageMaker Canvas. Neste Lab DIO, você aprenderá a usar o SageMaker Canvas para criar previsões de estoque baseadas em Machine Learning (ML). Siga os passos abaixo para completar o desafio!
 
-## 📋 Pré-requisitos
-
-Antes de começar, certifique-se de ter uma conta na AWS. Se precisar de ajuda para criar sua conta, confira nosso repositório [AWS Cloud Quickstart](https://github.com/digitalinnovationone/aws-cloud-quickstart).
-
-
-## 🎯 Objetivos Deste Desafio de Projeto (Lab)
+## 🎯 Objetivos Deste Projeto (Lab)
 
 ![image](https://github.com/digitalinnovationone/lab-aws-sagemaker-canvas-estoque/assets/730492/72f5c21f-5562-491e-aa42-2885a3184650)
 
-- Dê um fork neste projeto e reescreva este `README.md`. Sinta-se à vontade para detalhar todo o processo de criação do seu Modelo de ML para uma "Previsão de Estoque Inteligente".
-- Para isso, siga o [passo a passo] descrito a seguir e evolua as suas habilidades em ML no-code com o Amazon SageMaker Canvas.
-- Ao concluir, envie a URL do seu repositório com a solução na plataforma da DIO.
+- Com base em datasets, gerar análises e predições a respeito da variação do estoque, considerando diferentes variáveis. 
 
 
 ## 🚀 Passo a Passo
 
 ### 1. Selecionar Dataset
 
--   Navegue até a pasta `datasets` deste repositório. Esta pasta contém os datasets que você poderá escolher para treinar e testar seu modelo de ML. Sinta-se à vontade para gerar/enriquecer seus próprios datasets, quanto mais você se engajar, mais relevante esse projeto será em seu portfólio.
--   Escolha o dataset que você usará para treinar seu modelo de previsão de estoque.
--   Faça o upload do dataset no SageMaker Canvas.
+-   O dataset utilizado foi disponibilizado neste projeto, na seção de datasets.
+-   Possuindo exatas 1.001 rows e pouco mais de 5.000 células, se trata de um dataset até que robusto.
+  ![print dataset](https://github.com/user-attachments/assets/c4ed8b6d-887b-4ef2-9482-3113d38c5b5e)
+
 
 ### 2. Construir/Treinar
 
--   No SageMaker Canvas, importe o dataset que você selecionou.
--   Configure as variáveis de entrada e saída de acordo com os dados.
--   Inicie o treinamento do modelo. Isso pode levar algum tempo, dependendo do tamanho do dataset.
+-   Ao importar o dataset, devemos escolher a **QUANTIDADE_ESTOQUE** como target e a tabela **ID_PRODUTO** como item id.
+-   Não fiz muitas alterações nas configurações, apenas adicionei a **use schedule holliday**.
+ ![print configure model](https://github.com/user-attachments/assets/fa6f0105-eb81-4de4-9ee0-4475743be1bd)
+
 
 ### 3. Analisar
 
--   Após o treinamento, examine as métricas de performance do modelo.
--   Verifique as principais características que influenciam as previsões.
--   Faça ajustes no modelo se necessário e re-treine até obter um desempenho satisfatório.
+-   Com tudo já configurado, utilizei o método **Quick build** para realizar a análise.
+-   Considero que as métricas de Avg.wQL, WAPE, MAPE, RMSE e WASE bem satistfatórias.
+  ![print stats](https://github.com/user-attachments/assets/e2021304-bc7b-4083-a27f-ecd5cd306e38)
+- Outro ponto de vista: **PRECO** = 9.14% **HOLLIDAY_BR** = 2.79% **FLAG_PROMOCAO** = 0.00%
+  ![print stats 2](https://github.com/user-attachments/assets/3c93edb9-8c84-4251-a866-deaffd298d47)
+
+
 
 ### 4. Prever
 
--   Use o modelo treinado para fazer previsões de estoque.
--   Exporte os resultados e analise as previsões geradas.
--   Documente suas conclusões e qualquer insight obtido a partir das previsões.
+-   Aos realizar as predições de maneira singular, podemos encontrar métricas como **P10**, **P50** e **P90**.
+-   **P10** é um indicativo, digamos, "pessimista".
+-   **P50** seria um indicativo neutro.
+-   Enquanto o **P90** é mais otimista e prevê números mais satisfatórios.
+![print predict ](https://github.com/user-attachments/assets/8d5f3916-b8de-47dd-9bd4-235a3a379609)
 
-## 🤔 Dúvidas?
-
-Esperamos que esta experiência tenha sido enriquecedora e que você tenha aprendido mais sobre Machine Learning aplicado a problemas reais. Se tiver alguma dúvida, não hesite em abrir uma issue neste repositório ou entrar em contato com a equipe da DIO.
